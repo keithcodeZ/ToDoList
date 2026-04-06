@@ -1,0 +1,16 @@
+{
+  "name": "todo-list-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "fast-check": "^4.1.1",
+    "happy-dom": "^20.8.9",
+    "jsdom": "^29.0.1",
+    "vitest": "^3.2.1"
+  }
+}

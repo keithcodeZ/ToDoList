@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Todo List</h1>
+    </header>
+
+    <main>
+      <!-- Input area: text field, date picker, priority selector -->
+      <section class="input-area" aria-label="Add new todo">
+        <input type="text" id="todo-input" placeholder="What needs to be done?" aria-label="Todo title">
+        <input type="date" id="deadline-input" aria-label="Deadline date">
+        <select id="priority-input" aria-label="Priority level">
+          <option value="None" selected>None</option>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+      </section>
+
+      <!-- Filter bar: status filters and priority filter -->
+      <section class="filter-bar" aria-label="Filters">
+        <div class="status-filters" role="group" aria-label="Status filter">
+          <button class="filter-btn active" data-filter="All">All</button>
+          <button class="filter-btn" data-filter="Active">Active</button>
+          <button class="filter-btn" data-filter="Completed">Completed</button>
+        </div>
+        <div class="priority-filters">
+          <select id="priority-filter" aria-label="Priority filter">
+            <option value="All" selected>All Priorities</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+            <option value="None">None</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Sort controls -->
+      <section class="sort-controls" aria-label="Sort options">
+        <button id="sort-deadline" class="sort-btn" aria-pressed="false">Sort by Deadline</button>
+        <button id="sort-priority" class="sort-btn" aria-pressed="false">Sort by Priority</button>
+      </section>
+
+      <!-- Todo list container -->
+      <ul id="todo-list" aria-label="Todo items"></ul>
+
+      <!-- Empty state message -->
+      <p id="empty-state" class="empty-state">No tasks yet. Add one above!</p>
+    </main>
+
+    <footer>
+      <span id="item-count">0 items left</span>
+      <button id="clear-completed" style="display:none;">Clear Completed</button>
+    </footer>
+  </div>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>

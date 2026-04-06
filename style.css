@@ -1,0 +1,328 @@
+/* Todo List Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 2rem 1rem;
+  background: #f5f5f5;
+  color: #333;
+}
+
+#app {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+header h1 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* ---- Input Area ---- */
+.input-area {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.input-area input[type="text"] {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-area input[type="text"]:focus {
+  outline: none;
+  border-color: #4a90d9;
+  box-shadow: 0 0 0 2px rgba(74, 144, 217, 0.2);
+}
+
+.input-area input[type="date"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.input-area select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  background: #fff;
+}
+
+/* ---- Filter Bar ---- */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.status-filters {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.filter-btn {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.875rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  color: #555;
+}
+
+.filter-btn:hover {
+  background: #f0f0f0;
+}
+
+.filter-btn.active {
+  background: #4a90d9;
+  color: #fff;
+  border-color: #4a90d9;
+}
+
+.priority-filters select {
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  background: #fff;
+}
+
+/* ---- Sort Controls ---- */
+.sort-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.sort-btn {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.875rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  color: #555;
+}
+
+.sort-btn:hover {
+  background: #f0f0f0;
+}
+
+.sort-btn.active {
+  background: #4a90d9;
+  color: #fff;
+  border-color: #4a90d9;
+}
+
+/* ---- Todo List ---- */
+#todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ---- Todo Item ---- */
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.todo-item input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.todo-title {
+  flex: 1;
+  font-size: 1rem;
+  cursor: pointer;
+  word-break: break-word;
+}
+
+/* Completed item: strikethrough + muted (Req 3.2) */
+.todo-item.completed .todo-title {
+  text-decoration: line-through;
+  color: #999;
+}
+
+/* Overdue item: red text / warning (Req 11.1) */
+.todo-item.overdue .todo-title {
+  color: #d32f2f;
+}
+
+.todo-item.overdue .todo-deadline {
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+/* Completed overrides overdue styling */
+.todo-item.completed.overdue .todo-title {
+  color: #999;
+}
+
+/* Inline edit input (Req 5.1) */
+.todo-item .edit-input {
+  flex: 1;
+  padding: 0.3rem 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #4a90d9;
+  border-radius: 4px;
+  outline: none;
+}
+
+/* ---- Priority Badge (Req 14.1, 14.2, 14.3) ---- */
+.priority-badge {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  color: #fff;
+  font-weight: 600;
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+
+.priority-badge.high {
+  background: #d32f2f;
+}
+
+.priority-badge.medium {
+  background: #f57c00;
+}
+
+.priority-badge.low {
+  background: #1976d2;
+}
+
+.priority-badge.none {
+  display: none;
+}
+
+/* ---- Deadline display ---- */
+.todo-deadline {
+  font-size: 0.8rem;
+  color: #777;
+  flex-shrink: 0;
+}
+
+/* ---- Priority selector on item ---- */
+.todo-item select {
+  padding: 0.2rem 0.3rem;
+  font-size: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+}
+
+/* ---- Delete button ---- */
+.delete-btn {
+  background: none;
+  border: none;
+  color: #cc3333;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.delete-btn:hover {
+  background: #fee;
+}
+
+/* ---- Empty State (Req 2.4) ---- */
+.empty-state {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  padding: 2rem 0;
+  margin: 0;
+}
+
+/* ---- Footer ---- */
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+  border-top: 1px solid #eee;
+  font-size: 0.875rem;
+  color: #777;
+}
+
+#clear-completed {
+  padding: 0.3rem 0.75rem;
+  font-size: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  color: #555;
+}
+
+#clear-completed:hover {
+  background: #fee;
+  border-color: #cc3333;
+  color: #cc3333;
+}
+
+/* ---- Responsive: stack on small screens ---- */
+@media (max-width: 500px) {
+  .input-area {
+    flex-direction: column;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .status-filters {
+    justify-content: center;
+  }
+
+  .priority-filters {
+    text-align: center;
+  }
+
+  .sort-controls {
+    flex-direction: column;
+  }
+
+  .sort-btn {
+    width: 100%;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}
